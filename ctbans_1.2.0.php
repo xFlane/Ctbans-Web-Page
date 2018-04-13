@@ -426,6 +426,8 @@ try
 		if (!empty($_GET['banid'])) {
 			
 			$banid = htmlspecialchars($_GET['banid']);
+			$banid = mysqli_real_escape_string($banid);
+			
 			if (strstr($banid, 'j') != false || strstr($banid, 'o') != false) {
 				echo "<br><p><center><b><span style='color:red;font-size:16px;'>Wrong argument</span></b></center></p>";
 				echo "<br><br><table style='text-align:center;margin-left:auto;margin-right:auto;width:90%;'><tr><th><button onclick=" . '"' . "window.location = '{$_SERVER['PHP_SELF']}';" . '"'. "><span style='font-size:18px;'>Back</span></button></th></tr></table>";
